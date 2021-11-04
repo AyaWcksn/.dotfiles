@@ -1,0 +1,59 @@
+general {
+        output_format = "i3bar"
+        colors = false
+        markup = pango
+        interval = 5
+        color_good = '#98c379'
+		color_degraded = '#ebcb8b'
+		color_bad = '#e06c75'
+}
+
+order += "cpu_temperature 0"
+order += "disk /home/aya"
+order += "ethernet enp1s0"
+order += "wireless wlp2s0"
+order += "volume master"
+order += "battery 0"
+order += "tztime local"
+
+
+cpu_temperature 0 {
+        format = "<span background='#56b6c2' foreground='#fff'> 温度 %degrees °C </span>"
+        path = "/sys/class/thermal/thermal_zone0/temp"
+}
+
+ethernet enp1s0 {
+        format_up = "<span background='#98c379' foreground='#fff'>  %ip </span>"
+        format_down = "<span background='#e06c75' foreground='#fff'>  名無し </span>"
+}
+
+wireless wlp2s0 {
+        format_up = "<span background='#98c379' foreground='#fff'> %essid に接続された </span>"
+        format_down = "<span background='#e06c75' foreground='#fff''> ネットに接続されてない </span>"
+}
+
+volume master {
+        format = "<span background='#d19a66' foreground='#fff'> 声 %volume </span>"
+        format_muted = "<span background='#e06c75' foreground='#fff'> 婢無音 </span>"
+        device = "default"
+        mixer = "Master"
+        mixer_idx = 0
+}
+
+battery 0 {
+	last_full_capacity = true
+        format = "<span background='#c678dd' foreground='#fff'> 電池 %status %percentage </span>"
+        format_down = "無"
+        status_chr = "充電中"
+        status_bat = "Battery"
+        status_unk = "不明"
+        status_full = "充電完了"
+        path = "/sys/class/power_supply/BAT%d/uevent"
+        low_threshold = 10
+}
+
+tztime local {
+		format = "<span background='#abb2bf' foreground='#fff'> %time </span>"
+		format_time = "今日は %a %-d %b %H:%M"
+}
+
