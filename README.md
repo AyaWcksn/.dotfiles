@@ -47,3 +47,4 @@ Because of i'm using 40% & 60% keyboad, all of my Keybind is on main board
 | [Feh](https://github.com/derf/feh)                                        | Image viewer                                |
 | [NekoVim](https://github.com/AyaWcksn/Neko-Vim)                           | My customized neovim config for text editor |
 | [Alacritty](https://github.com/alacritty/alacritty)                       | Terminal emulator                           |
+| [Qutebrowser](https://github.com/qutebrowser/qutebrowser)                 | Browser                                     |
