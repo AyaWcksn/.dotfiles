@@ -29,7 +29,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 ##### i3-gaps ##############
-for_window [class=".*"] border pixel 5 #*
+for_window [class=".*"] border pixel 5 
 gaps inner 20
 gaps outer 5
 
@@ -185,14 +185,17 @@ mode "resize" {
 # finds out, if available)
 bar {
         position top
-        status_command i3status
+        font pango:Meslo NF 8
+        status_command ~/clones/bumblebee-status/bumblebee-status-2.1.4/bumblebee-status -m cpu nic mpd battery date time \
+		pasink git -p time.format="%H:%M" -t onedark-powerline
+        # status_command i3status
         colors {
         background #282c34
         statusline #98c379
 	focused_workspace #c678dd #c678dd #ffffff 
 	active_workspace #c678dd #98c379 #ffffff
 	inactive_workspace #282c34 #abb2bf #ffffff
-				}
+        }
 }
 # Volume
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -202,8 +205,14 @@ bindsym $mod + Shift + i exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@
 bindsym $mod + XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Brightness
-bindsym $mod+Shift+l exec "light -A 10"
-bindsym $mod+Shift+h exec "light -U 10"
+bindsym $mod+Shift+l exec "xbacklight -inc 10"
+bindsym $mod+Shift+h exec "xbacklight -dec 10"
+
+# Mpc
+bindsym $mod+Control+l exec "mpc next"
+bindsym $mod+Control+h exec "mpc prev"
+bindsym $mod+Control+k exec "mpc play"
+bindsym $mod+Control+j exec "mpc pause"
 
 exec_always --no-startup-id pulseaudio
 exec_always picom
@@ -212,13 +221,14 @@ bindsym $mod+Control+w exec firefox
 bindsym $mod+Shift+w exec qutebrowser
 
 bindsym $mod+Shift+f exec alacritty -e ranger
-bindsym $mod+m exec st -e ncmpcpp
+bindsym $mod+m exec alacritty -e ncmpcpp
 bindsym $mod+Shift+n exec alacritty -e nvim
 exec_always mpd
 exec_always feh --bg-fill ~/.wallpaper/onedark.png
 bindsym $mod+p exec scrot 'Screenshot_%a-%d_%b_%y_%H.%M.png' -e 'mv $f ~/Pictures/Screenshots && feh ~/Pictures/Screenshots/$f'
+bindsym $mod+Control+p exec scrot -u 'Screenshot_%a-%d_%b_%y_%H.%M.png' -e 'mv $f ~/Pictures/Screenshots && feh ~/Pictures/Screenshots/$f'
+bindsym $mod+Shift+p exec scrot -s 'Screenshot_%a-%d_%b_%y_%H.%M.png' -e 'mv $f ~/Pictures/Screenshots && feh ~/Pictures/Screenshots/$f'
 exec --no-startup-id systemctl --user restart pulseadio
-exec_always xfce4-power-manager
 # Network manager
 bindsym $mod+n exec networkmanager_dmenu
 

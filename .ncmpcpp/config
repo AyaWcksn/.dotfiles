@@ -1,10 +1,9 @@
 ### MPD ###
 mpd_music_dir = ~/Music
-mpd_port = "6601"
+mpd_port = "6600"
 
 ### Behaviour ###
 # On song change display cover + dunst notification 
-execute_on_song_change="~/.ncmpcpp/ncmpcpp-ueberzug/ncmpcpp_cover_art.sh"
 message_delay_time = 1
 playlist_disable_highlight_delay = 2
 autocenter_mode = "yes"
@@ -29,7 +28,7 @@ statusbar_visibility = "yes"
 header_visibility = "no"
 titles_visibility = "no"
 display_volume_level = "yes"
-statusbar_color = "black"
+statusbar_color = "white"
 empty_tag_marker = "   "
 
 # Songs List #
@@ -52,7 +51,7 @@ alternative_header_second_line_format = {$b{$2%a$9}{ - $7%b$9}{ ($2%y$9)}}|{%D}
 # Song list #
 #song_status_format= "$7%t"
 song_list_format = " $7%t $R$5%a  $6|  $4%l  "
-song_columns_list_format = "(3)[black]{n} (45)[blue]{t|f} (45)[black]{a}  (7)[magenta]{l}"
+song_columns_list_format = "(3)[white]{n} (45)[blue]{t|f} (45)[white]{a}  (7)[magenta]{l}"
 #song_columns_list_format = "(5)[black]{n} (25)[blue]{t|f} (25)[black]{ar}"
 song_library_format = {{%t - %a} (%b)}|{%f}
 
@@ -67,4 +66,4 @@ main_window_color = "white"
 song_status_format = "$b$2♥$4%t$2-%a♥"
 
 color1 = "black"
-color2 = "red"e
+color2 = "red"

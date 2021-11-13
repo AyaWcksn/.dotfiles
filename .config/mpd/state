@@ -1,0 +1,38 @@
+sw_volume: 59
+audio_device_state:1:My ALSA Device
+audio_device_state:1:My Pulse Output
+audio_device_state:1:my_fifo
+state: play
+current: 21
+time: 80.417000
+random: 1
+repeat: 1
+single: 0
+consume: 0
+crossfade: 5
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:[1998.03.18] Merveilles/07 au revoir.mp3
+1:NOCTURNAL BLOODLUST/NOCTURNAL BLOODLUST - Life is Once.mp3
+2:NOCTURNAL BLOODLUST/NOCTURNAL BLOODLUST - Last relapse.mp3
+3:[1998.03.18] Merveilles/01 ~de merveilles.mp3
+4:Re:dial/livetune, Miku Hatsune - Redial.mp3
+5:Re:dial/livetune, Miku Hatsune - Yellow - Re-Dialed.mp3
+6:[2009.03.04] Supercell feat. Hatsune Miku [Album]/01. 恋は戦争 (Love is War).mp3
+7:[2013.11.27] ZIGAEXPERIENTIA/14. 時間列車.mp3
+8:[2013.11.27] ZIGAEXPERIENTIA/12. 僕らのあしあと (Album Mix).mp3
+9:[2011.03.16] Today Is A Beautiful Day/01 Owari e Mukau Hajimari no Uta.mp3
+10:[2011.03.16] Today Is A Beautiful Day/09 Hoshi ga Matataku Konna Yoru ni.mp3
+11:[2013.11.27] ZIGAEXPERIENTIA/01. Journey’s End.mp3
+12:[2013.11.27] ZIGAEXPERIENTIA/08. Yeah Oh Ahhh Oh !.mp3
+13:[2013.11.27] ZIGAEXPERIENTIA/11. The Bravery (Album Mix).mp3
+14:[2013.11.27] ZIGAEXPERIENTIA/13. 告白 (Album Mix).mp3
+15:[2013.11.27] ZIGAEXPERIENTIA/15. We’re Still Here.mp3
+16:[2013.11.27] ZIGAEXPERIENTIA/05. 従属人間.mp3
+17:[2013.11.27] ZIGAEXPERIENTIA/06. ホワイト製薬.mp3
+18:[2013.11.27] ZIGAEXPERIENTIA/03. Mr.Downer.mp3
+19:[2013.11.27] ZIGAEXPERIENTIA/09. 百回目のキス.mp3
+20:XJapan/X JAPAN - 20th CENTURY BOY(ライブテイク) - Remaster.mp3
+21:DEVILOOF/DEVILOOF - ESCAPE.mp3
+playlist_end
