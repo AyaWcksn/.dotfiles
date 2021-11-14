@@ -8,26 +8,36 @@ Because of i'm using 40% & 60% keyboad, all of my Keybind is on main board
 * Keybind  
 `mod: Super key`
 
-| Key                 | Function                                 |
-|---------------------|------------------------------------------|
-| Mod + h/j/k/l       | Switch between windows                   |
-| Mod + Shift + j/k   | Volume Up/Down                           |
-| Mod + Shift + h/l   | Brightness Up/Down                       |
-| Mod + p             | Screenshot entire screen                 |
-| Mod + Control + p   | Screenshot active window                 |
-| Mod + Shift + p     | Screenshot choosen screen                |
-| Mod + Control + j/k | Play/Pause music                         |
-| Mod + Control + h/l | Nex/Prev music                           |
-| Mod + m             | Launch music player                      |
-| Mod + Shift + w     | Launch web browser                       |
-| Mod + Control + w   | Launch second web browser                |
-| Mod + Shift + f     | Launch file manager                      |
-| Mod + 1~0           | Switch workspace                         |
-| Mod + Shift + 1~0   | Send active window to selected workspace |
-| Mod + q             | Close selected window                    |
-| Mod + Shift + e     | Log out                                  |
-| Mod + n             | Launch network manager                   |
-| Mod + d             | Launch search application                |
+| Key                   | Function                                 |
+|-----------------------|------------------------------------------|
+| Mod + h/j/k/l         | Switch between windows                   |
+| Mod + Shift + h/j/k/l | Move windows                             |
+| Mod + p               | Screenshot entire screen                 |
+| Mod + Control + p     | Screenshot active window                 |
+| Mod + Shift + p       | Screenshot choosen screen                |
+| Mod + Control + j/k   | Play/Pause music                         |
+| Mod + Control + h/l   | Nex/Prev music                           |
+| Mod + m               | Launch music player                      |
+| Mod + Shift + w       | Launch web browser                       |
+| Mod + Control + w     | Launch second web browser                |
+| Mod + Shift + f       | Launch file manager                      |
+| Mod + 1~0             | Switch workspace                         |
+| Mod + Shift + 1~0     | Send active window to selected workspace |
+| Mod + q               | Close selected window                    |
+| Mod + Shift + e       | Log out                                  |
+| Mod + n               | Launch network manager                   |
+| Mod + d               | Launch search application                |
+| Mod + ,               | Volume Down                              |
+| Mod + .               | Volume Up                                |
+| Mod + <               | Brightness Down                          |
+| Mod + >               | Brightness Up                            |
+| Mod + [               | Previous song spotify                    |
+| Mod + ]               | Next song spotify                        |
+| Mod + \               | Play and pause song in spotify           |
+| Mod + ;               | Move workspace to left monitor           |
+| Mod + '               | Move workspace to right monitor          |
+| Mod + :               | Move workspace to top monitor            |
+| Mod + "               | Move workspace to bottom monitor         |
 
 * Application 
 

@@ -9,7 +9,8 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+# set $mod Mod4
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -147,9 +148,9 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 1 px or 1 ppt
-        bindsym k resize grow height 1 px or 1 ppt
-        bindsym i resize shrink height 1 px or 1 ppt
+        bindsym h resize shrink width 1 px or 1 ppt
+        bindsym j resize grow height 1 px or 1 ppt
+        bindsym k resize shrink height 1 px or 1 ppt
         bindsym l resize grow width 1 px or 1 ppt
 
         # same bindings, but for the arrow keys
@@ -179,14 +180,14 @@ mode "resize" {
 # bindsym $mod+Shift+Control+h move container to output left
 # bindsym $mod+Shift+Control+j move container to output down
 # bindsym $mod+Shift+Control+k move container to output up
-# bindsym $mod+r mode "resize"
+bindsym $mod+r mode "resize"
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
         position top
         font pango:Meslo NF 8
-        status_command ~/clones/bumblebee-status/bumblebee-status-2.1.4/bumblebee-status -m cpu nic mpd battery date time \
+        status_command ~/clones/bumblebee-status/bumblebee-status-2.1.4/bumblebee-status -m cpu nic playerctl mpd battery date time \
 		pasink git -p time.format="%H:%M" -t onedark-powerline
         # status_command i3status
         colors {
@@ -199,20 +200,37 @@ bar {
 }
 # Volume
 set $refresh_i3status killall -SIGUSR1 i3status
-bindsym $mod + Shift + k exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
-bindsym $mod + Shift + j exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym $mod + period exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
+bindsym $mod + comma exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym $mod + Shift + i exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym $mod + XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
 
 # Brightness
-bindsym $mod+Shift+l exec "xbacklight -inc 10"
-bindsym $mod+Shift+h exec "xbacklight -dec 10"
+bindsym $mod+Shift+greater exec "xbacklight -inc 10"
+bindsym $mod+Shift+less exec "xbacklight -dec 10"
 
 # Mpc
 bindsym $mod+Control+l exec "mpc next"
 bindsym $mod+Control+h exec "mpc prev"
 bindsym $mod+Control+k exec "mpc play"
 bindsym $mod+Control+j exec "mpc pause"
+bindsym $mod+x exec "mpc stop"
+
+bindsym $mod+bracketleft exec "playerctl previous"
+bindsym $mod+bracketright exec "playerctl next"
+bindsym $mod+backslash exec "playerctl play-pause"
+
+# Move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Multi monitor
+bindsym $mod+semicolon move workspace to output left
+bindsym $mod+apostrophe move workspace to output right
+bindsym $mod+quotedbl move workspace to output down
+bindsym $mod+colon move workspace to output up
 
 exec_always --no-startup-id pulseaudio
 exec_always picom
@@ -231,6 +249,5 @@ bindsym $mod+Shift+p exec scrot -s 'Screenshot_%a-%d_%b_%y_%H.%M.png' -e 'mv $f 
 exec --no-startup-id systemctl --user restart pulseadio
 # Network manager
 bindsym $mod+n exec networkmanager_dmenu
-
-# move focused window between monitors
-bindsym $mod+Shift+greater move container to output right
+workspace_auto_back_and_forth yes
+bindsym $mod+z workspace back_and_forth
