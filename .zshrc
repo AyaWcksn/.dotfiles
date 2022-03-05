@@ -9,10 +9,11 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/wonderlabs/.oh-my-zsh"
+export ZSH="/home/aya/.oh-my-zsh"
 export EDITOR="nvim"
 
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="agnoster"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -117,22 +118,6 @@ lg()
     fi
 }
 
-command_not_found_handler() {
-    # Find which package contains the file with the path /usr/bin/COMMAND
-    package_name=$(pacman -Fq "/usr/bin/$1" | head)
-
-    # If no package is found output the error message which ZSH shows by default
-    [[ -z "$package_name" ]] && echo "zsh: command not found: $1" && exit 1
-
-    # Notify user and ask whether or not they want to install the package
-    echo -e "Command '\e[1m$1\e[0m' not found, but was found in the '\e[1m$package_name\e[0m' package."
-    echo -n "Would you like to install it? [Y/n] "
-    read -k confirm
-    echo "\n" 
-
-    [[ "$confirm" == [yY] ]] && sudo pacman -S "$package_name"
-}
-
 function ex {
  if [ -z "$1" ]; then
     # display usage if no parameters given
@@ -170,13 +155,21 @@ function ex {
 fi
 }
 
+function fan() {
+  sensors
+  echo level $@ | sudo tee /proc/acpi/ibm/fan
+}
+
+
 # Colorize grep output (good for log files)
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
+alias brightness="sudo chmod 777 /sys/class/backlight/intel_backlight/brightness"
+
 # confirm before overwriting something
-alias cp="cp -i"
+alias cp="rsync -av -P"
 alias mv='mv -i'
 alias rm='rm -i'
 
@@ -211,10 +204,24 @@ alias yta-vorbis="youtube-dl --extract-audio --audio-format vorbis "
 alias yta-wav="youtube-dl --extract-audio --audio-format wav "
 alias ytv-best="youtube-dl -f bestvideo+bestaudio "
 
+# Tmux
+alias t="tmux"
+alias ta="t a -t"
+alias tls="t ls"
+alias tn="t new -t"
+
+# Termux
+alias termux-start="docker start termux-x86_64"
+alias termux="docker exec -it termux-x86_64 /bin/bash"
+
+# Vim keybindings
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+source $HOME/.zsh-vi-mode/zsh-vi-mode.plugin.zsh
 
 plugins=(git wd docker zsh-autosuggestions zsh-syntax-highlighting zsh-vi-mode)
 export PATH="/usr/local/opt/php@7.3/bin:$PATH"
 alias x="exit"
+alias code="/home/aya/.local/share/lunarvim/lvim"
 alias reload="source ~/.zshrc"
 alias hc="history -c"
 alias hg="history | grep "
@@ -234,6 +241,5 @@ export GO111MODULE="auto"
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-export GOPRIVATE="bitbucket.org/pintek"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
